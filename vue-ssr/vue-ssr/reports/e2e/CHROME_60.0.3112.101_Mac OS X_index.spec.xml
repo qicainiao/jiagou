@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="1">
+
+  <testsuite name="index.spec"
+    errors="0" failures="1" hostname="" id="" package="index.spec" skipped="0"
+    tests="1" time="3.849" timestamp="Sun, 27 Aug 2017 08:11:23 GMT">
+  
+    <testcase name="topics e2e tests" classname="index.spec" time="3.849" assertions="1">  <failure message="Failed [equal]: (0 == 10)">    at Object.&lt;anonymous&gt; (/Users/yuanzhijia/Desktop/yd-vue-ssr/test/e2e/index.spec.js:13:23)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
