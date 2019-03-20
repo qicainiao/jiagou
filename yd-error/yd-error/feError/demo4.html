@@ -1,0 +1,14 @@
+<!-- 由于网络请求异常不会事件冒泡，因此必须在捕获阶段将其捕捉到才行，
+但是这种方式虽然可以捕捉到网络请求的异常，
+但是无法判断 HTTP 的状态是 404 还是其他比如 500 等等，
+所以还需要配合服务端日志才进行排查分析才可以。 -->
+<script>
+window.addEventListener('error', (msg, url, row, col, error) => {
+  console.log('我知道 404 错误了');
+  console.log(
+    msg, url, row, col, error
+  );
+  return false;
+}, true);
+</script>
+<img src="./404.png" alt="">

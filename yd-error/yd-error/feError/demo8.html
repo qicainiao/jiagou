@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跨域错误</title>
+</head>
+
+<body>
+    结果显示，跨域之后window.onerror根本捕获不到正确的异常信息，而是统一返回一个Script error，
+
+    解决方案：对script标签增加一个crossorigin=”anonymous”，并且服务器添加Access-Control-Allow-Origin。
+
+    <script src="http://cdn.xxx.com/index.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

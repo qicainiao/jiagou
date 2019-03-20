@@ -1,0 +1,33 @@
+<script>
+//运行时的错误
+try {
+    error // 未定义变量 
+} catch (e) {
+    console.log('我知道错误了');
+    console.log(e);
+}
+</script>
+
+
+<script>
+//示例：语法错误
+try {
+    var error = 'error'； // 大写分号
+} catch (e) {
+    console.log('我感知不到错误');
+    console.log(e);
+}
+</script>
+
+
+<script>
+try {
+  setTimeout(() => {
+    error        // 异步错误
+  })
+} catch(e) {
+  console.log('我感知不到错误');
+  console.log(e);
+}
+</script>
+结论：try-catch 处理异常的能力有限，只能捕获捉到运行时非异步错误，对于语法错误和异步错误就显得无能为力，捕捉不到。

@@ -1,0 +1,46 @@
+ Script error
+ Script error 是浏览器在同源策略限制下产生的，浏览器处于对安全性上的考虑，当页面引用非同域名外部脚本文件时中抛出异常的话，此时本页面是没有权利知道这个报错信息的，取而代之的是输出 Script error 这样的信息。
+<script>
+document.createElement = (function() {
+    const fn = document.createElement.bind(document);
+    return function(type) {
+        const result = fn(type);
+        if (type === 'script') {
+            result.crossOrigin = 'anonymous';
+        }
+        return result;
+    }
+})();
+window.onerror = function(msg, url, row, col, error) {
+    console.log('我知道错误了，也知道错误信息');
+    console.log({
+        msg,
+        url,
+        row,
+        col,
+        error
+    })
+    return true;
+};
+$.ajax({
+    url: 'http://localhost:8081/data',
+    dataType: 'jsonp',
+    success: (data) => {
+        console.log(data);
+    }
+})
+</script>
+
+如果遇到jsonp就再次的结束了
+
+const Koa = require('koa');
+const path = require('path');
+const cors = require('koa-cors');
+const app = new Koa();
+
+app.use(cors());
+app.use(require('koa-static')(path.resolve(__dirname, './public')));
+
+app.listen(8081, () => {
+  console.log('koa app listening at 8081')
+});

@@ -1,0 +1,46 @@
+<script>
+//window.onerror 捕获异常能力比 try-catch 稍微强点，
+//无论是异步还是非异步错误，onerror 都能捕获到运行时错误。
+/**
+ * @param {String}  msg    错误信息
+ * @param {String}  url    出错文件
+ * @param {Number}  row    行号
+ * @param {Number}  col    列号
+ * @param {Object}  error  错误详细信息
+ */
+window.onerror = function(msg, url, row, col, error) {
+    console.log('我知道错误了');
+    console.log({
+        msg,
+        url,
+        row,
+        col,
+        error
+    })
+    return true;
+};
+error;
+</script>
+<script>
+//异步错误
+window.onerror = function(msg, url, row, col, error) {
+    console.log('我知道异步错误了');
+    console.log({
+        msg,
+        url,
+        row,
+        col,
+        error
+    })
+    return true;
+};
+setTimeout(() => {
+    error;
+});
+</script>
+
+1.onerror 主要是来捕获预料之外的错误，而 try-catch 则是用来在可预见情况下监控特定的错误，两者结合使用更加高效。
+
+2.window.onerror 函数只有在返回 true 的时候，异常才不会向上抛出，否则即使是知道异常的发生控制台还是会显示 Uncaught Error: xxxxx。
+
+3.当我们遇到 <img src="./404.png"> 报 404 网络请求异常的时候，onerror 是无法帮助我们捕获到异常的。

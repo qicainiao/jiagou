@@ -1,0 +1,13 @@
+<iframe src="./iframe.html" frameborder="0"></iframe>
+<script>
+  window.frames[0].onerror = function (msg, url, row, col, error) {
+    console.log('我知道 iframe 的错误了，也知道错误信息');
+    console.log({
+      msg,  url,  row, col, error
+    })
+    return true;
+  };
+</script>
+
+
+如果你嵌入的 iframe 页面和你的主站不是同个域名的，但是 iframe 内容不属于第三方，是你可以控制的，那么可以通过与 iframe 通信的方式将异常信息抛给主站接收。与 iframe 通信的方式有很多，常用的如：postMessage，hash 或者 name 字段跨域等等，这里就不展开了，

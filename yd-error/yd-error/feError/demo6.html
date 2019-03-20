@@ -1,0 +1,29 @@
+// http://localhost:8080/index.html
+<script>
+window.onerror = function(msg, url, row, col, error) {
+    console.log('我知道错误了，也知道错误信息');
+    console.log({
+        msg,
+        url,
+        row,
+        col,
+        error
+    })
+    return true;
+};
+</script>
+<script src="http://localhost:8081/test.js" crossorigin></script>
+// http://localhost:8081/test.js setTimeout(() => { console.log(error); }); //后端的node
+<script>
+const Koa = require('koa');
+const path = require('path');
+const cors = require('koa-cors');
+const app = new Koa();
+
+app.use(cors());
+app.use(require('koa-static')(path.resolve(__dirname, './public')));
+
+app.listen(8081, () => {
+    console.log('koa app listening at 8081')
+});
+</script>

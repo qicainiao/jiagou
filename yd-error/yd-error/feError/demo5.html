@@ -1,0 +1,25 @@
+<script>
+//全局去捕获promise error
+window.addEventListener("unhandledrejection", function(e) {
+    e.preventDefault()
+    console.log('我知道 promise 的错误了');
+    console.log(e.reason);
+    return true;
+});
+Promise.reject('promise error').catch((err)=>{
+    console.log(err);
+})
+new Promise((resolve, reject) => {
+    reject('promise error');
+}).catch((err)=>{
+    console.log(err);
+})
+new Promise((resolve) => {
+    resolve();
+}).then(() => {
+    throw 'promise error'
+});
+new Promise((resolve, reject) => {
+    reject(123);
+})
+</script>
