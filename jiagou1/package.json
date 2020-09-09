@@ -40,6 +40,6 @@
   "dependencies": {
     "lodash-es": "^4.17.11",
     "vue": "^2.6.8",
-    "yargs-parser": "^13.0.0"
+    "yargs-parser": "^13.1.2"
   }
 }
