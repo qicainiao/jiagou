@@ -66,7 +66,7 @@
         "eslint-plugin-vue": "^2.1.0",
         "extract-text-webpack-plugin": "^3.0.0",
         "file-loader": "^0.11.2",
-        "grunt": "^1.0.1",
+        "grunt": "^1.3.0",
         "gulp": "^3.9.1",
         "gulp-phantomcss": "^0.3.0",
         "gulp-prepack-js": "^0.0.2",
