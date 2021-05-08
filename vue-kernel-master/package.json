@@ -66,7 +66,7 @@
     "koa-simple-router": "^0.2.0",
     "koa-static": "^3.0.0",
     "koa-swig": "^2.2.1",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "selenium-webdriver": "^3.4.0",
     "supertest": "^3.0.0",
     "vue": "^2.3.0"
