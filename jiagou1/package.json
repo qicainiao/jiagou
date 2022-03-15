@@ -38,7 +38,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "lodash-es": "^4.17.11",
+    "lodash-es": "^4.17.21",
     "vue": "^2.6.8",
     "yargs-parser": "^13.0.0"
   }
